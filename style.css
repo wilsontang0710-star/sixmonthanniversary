@@ -1,44 +1,275 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap');
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 :root {
-    --black: #050304;
-    --deep-red: #3d080f;
-    --red: #9d1628;
-    --bright-red: #c52a43;
-    --white: #f5efed;
-    --muted: #a89b99;
+    --black: #030203;
+    --black-soft: #080405;
+
+    --red-dark: #26050b;
+    --red-deep: #4c0813;
+    --red: #8e1428;
+    --red-bright: #c12d46;
+
+    --rose: #c87582;
+    --pink: #e3afb5;
+
+    --white: #f4edeb;
+    --cream: #ddd0cd;
+    --muted: #8e8080;
+    --muted-dark: #5d5052;
+
+    --line: rgba(188, 73, 89, .32);
 }
 
-/* =========================
-   RESET
-========================= */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    margin: 0;
-    background: #030203;
+    background: var(--black);
     color: var(--white);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
     overflow-x: hidden;
 }
 
-/* =========================
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   GLOBAL BACKGROUND
+========================================================= */
+
+#stars {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -10;
+
+    pointer-events: none;
+}
+
+
+.nebula {
+    position: fixed;
+
+    width: 70vw;
+    height: 50vw;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: -8;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(112, 8, 29, .22),
+            rgba(65, 4, 16, .08) 45%,
+            transparent 72%
+        );
+}
+
+
+.nebula-a {
+    left: -25vw;
+    top: 15vh;
+}
+
+
+.nebula-b {
+    right: -25vw;
+    bottom: -5vh;
+
+    opacity: .65;
+}
+
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+.grain {
+    position: fixed;
+
+    inset: -50%;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    opacity: .045;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+    animation:
+        grainMove .25s steps(2) infinite;
+}
+
+
+@keyframes grainMove {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2%, -1%);
+    }
+
+    50% {
+        transform: translate(-1%, 2%);
+    }
+
+    75% {
+        transform: translate(1%, 1%);
+    }
+
+    100% {
+        transform: translate(-2%, -1%);
+    }
+}
+
+
+/* =========================================================
+   CORNER SCREEN DECORATIONS
+========================================================= */
+
+.ornament-corner {
+    position: fixed;
+
+    z-index: 50;
+
+    color: rgba(205, 103, 117, .55);
+
+    font-size: 13px;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 12px rgba(191, 36, 60, .5);
+}
+
+
+.corner-tl {
+    top: 22px;
+    left: 24px;
+}
+
+
+.corner-tr {
+    top: 22px;
+    right: 24px;
+}
+
+
+.corner-bl {
+    bottom: 22px;
+    left: 24px;
+}
+
+
+.corner-br {
+    bottom: 22px;
+    right: 24px;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+    position: fixed;
+
+    top: 22px;
+    right: 25px;
+
+    z-index: 80;
+
+    padding: 10px 15px;
+
+    color: #d8cac8;
+
+    background:
+        rgba(5, 2, 4, .62);
+
+    border:
+        1px solid
+        rgba(172, 67, 82, .42);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: .35s ease;
+}
+
+
+.music-btn:hover {
+    color: white;
+
+    border-color:
+        rgba(210, 91, 107, .8);
+
+    background:
+        rgba(67, 5, 16, .35);
+
+    box-shadow:
+        0 0 25px
+        rgba(155, 17, 40, .18);
+}
+
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     position: relative;
-    min-height: 100vh;
-    height: 100vh;
+
+    width: 100%;
+    height: 100svh;
+
+    min-height: 650px;
+
     overflow: hidden;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -46,73 +277,82 @@ body {
 
     background:
         radial-gradient(
-            circle at 50% 45%,
-            rgba(85, 8, 20, 0.42) 0%,
-            rgba(45, 4, 12, 0.22) 25%,
-            rgba(0, 0, 0, 0.85) 65%,
+            ellipse at 50% 48%,
+            rgba(82, 6, 20, .48) 0%,
+            rgba(45, 3, 11, .26) 27%,
+            rgba(8, 3, 5, .92) 68%,
             #020202 100%
-        ),
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(120, 15, 30, 0.15),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(100, 10, 25, 0.15),
-            transparent 35%
-        ),
-        #030203;
+        );
 }
 
-/* =========================
-   STAR FIELD
-========================= */
+
+/* =========================================================
+   HERO STAR FIELD
+========================================================= */
 
 .hero::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.6) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,210,215,.8) 0 1px, transparent 1.5px);
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,220,225,.65) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.5) 0 1px,
+            transparent 1.5px
+        );
 
     background-size:
-        180px 180px,
+        170px 170px,
         260px 260px,
-        330px 330px;
+        390px 390px;
 
     background-position:
-        10px 30px,
-        80px 100px,
-        150px 50px;
+        0 0,
+        60px 100px,
+        130px 50px;
 
-    opacity: .55;
+    opacity: .45;
+
     pointer-events: none;
 }
 
-/* =========================
-   RED NEBULA
-========================= */
+
+/* =========================================================
+   HERO RED NEBULA
+========================================================= */
 
 .hero::after {
     content: "";
+
     position: absolute;
-    width: 850px;
-    height: 500px;
+
+    width: 1000px;
+    height: 600px;
 
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     background:
         radial-gradient(
             ellipse,
-            rgba(110, 8, 25, .28),
-            rgba(55, 4, 14, .12) 40%,
+            rgba(124, 9, 31, .28),
+            rgba(69, 5, 18, .13) 38%,
             transparent 70%
         );
 
@@ -121,224 +361,777 @@ body {
     pointer-events: none;
 }
 
-/* =========================
-   DECORATIVE GLOW
-========================= */
 
-.hero-glow {
+/* =========================================================
+   HERO FRAME
+========================================================= */
+
+.hero-frame {
     position: absolute;
 
-    width: 650px;
-    height: 650px;
+    inset: 28px;
 
-    left: 50%;
-    top: 50%;
+    border:
+        1px solid
+        rgba(181, 91, 105, .25);
 
-    transform: translate(-50%, -50%);
+    pointer-events: none;
 
-    border: 1px solid rgba(151, 35, 49, .22);
-    border-radius: 50%;
+    z-index: 2;
+}
 
-    box-shadow:
-        0 0 80px rgba(120, 10, 25, .12),
-        inset 0 0 80px rgba(120, 10, 25, .08);
+
+.hero-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border:
+        1px solid
+        rgba(181, 91, 105, .10);
+}
+
+
+/* =========================================================
+   HERO VIGNETTE
+========================================================= */
+
+.hero-vignette {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 30%,
+            rgba(0,0,0,.45) 72%,
+            rgba(0,0,0,.82) 100%
+        );
+
+    z-index: 2;
 
     pointer-events: none;
 }
 
-/* second orbit */
+
+/* =========================================================
+   MAIN GLOW / ORBIT
+========================================================= */
+
+.hero-glow {
+    position: absolute;
+
+    width: 680px;
+    height: 680px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px solid
+        rgba(172, 49, 65, .18);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 90px
+        rgba(111, 7, 27, .13),
+
+        inset 0 0 90px
+        rgba(111, 7, 27, .07);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* horizontal orbit */
 
 .hero-glow::before {
     content: "";
 
     position: absolute;
 
-    width: 800px;
-    height: 220px;
+    width: 900px;
+    height: 280px;
 
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%) rotate(-8deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(-10deg);
 
-    border: 1px solid rgba(180, 65, 75, .35);
+    border:
+        1px solid
+        rgba(197, 83, 98, .27);
 
     border-radius: 50%;
 
     box-shadow:
-        0 0 25px rgba(140, 20, 35, .15);
-
-    pointer-events: none;
+        0 0 30px
+        rgba(132, 16, 37, .10);
 }
 
-/* =========================
-   HERO CONTENT
-========================= */
 
-.hero > * {
-    position: relative;
-    z-index: 5;
-}
+/* second orbit */
 
-.hero section,
-.hero .hero-content {
-    position: relative;
-    z-index: 5;
-}
-
-/* =========================
-   EYEBROW
-========================= */
-
-.eyebrow {
-    margin-bottom: 18px;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 11px;
-    letter-spacing: 6px;
-
-    color: #c5aaa9;
-
-    text-transform: uppercase;
-}
-
-/* =========================
-   MAIN TITLE
-========================= */
-
-.hero h1 {
-    margin: 0;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(75px, 10vw, 150px);
-
-    font-weight: 500;
-
-    line-height: .78;
-
-    letter-spacing: -4px;
-
-    color: #f7f0ee;
-
-    text-shadow:
-        0 0 18px rgba(255,255,255,.08),
-        0 0 50px rgba(120, 15, 30, .18);
-}
-
-/* =========================
-   WITH YOU
-========================= */
-
-.hero h1 em {
-    display: block;
-
-    margin-top: 20px;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: .72em;
-
-    font-weight: 500;
-
-    font-style: italic;
-
-    letter-spacing: -3px;
-
-    color: #a8172d;
-
-    text-shadow:
-        0 0 12px rgba(180, 20, 45, .35),
-        0 0 35px rgba(130, 10, 30, .22);
-}
-
-/* =========================
-   DATE
-========================= */
-
-.subtitle {
-    margin-top: 34px;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-
-    color: #b9a5a3;
-
-    position: relative;
-}
-
-/* lines around date */
-
-.subtitle::before,
-.subtitle::after {
+.hero-glow::after {
     content: "";
 
     position: absolute;
 
+    width: 770px;
+    height: 180px;
+
+    left: 50%;
     top: 50%;
 
-    width: 105px;
+    transform:
+        translate(-50%, -50%)
+        rotate(15deg);
+
+    border:
+        1px solid
+        rgba(165, 61, 76, .13);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.moon {
+    position: absolute;
+
+    left: 50%;
+    top: 8%;
+
+    transform:
+        translateX(-50%);
+
+    width: 78px;
+    height: 78px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 34% 34%,
+            #fff9f7 0%,
+            #e4c5c5 35%,
+            #bd858c 68%,
+            #70202e 100%
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(242, 194, 198, .38),
+
+        0 0 75px
+        rgba(151, 24, 44, .23);
+
+    z-index: 4;
+
+    opacity: .9;
+}
+
+
+/* crescent shadow */
+
+.moon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 74px;
+    height: 74px;
+
+    left: 22px;
+    top: -11px;
+
+    border-radius: 50%;
+
+    background:
+        #050304;
+}
+
+
+/* moon glow */
+
+.moon span::before {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    left: -35px;
+    top: 18px;
+
+    background: #e9b8bd;
+
+    box-shadow:
+        130px 18px 0 #c56d79,
+        105px 70px 0 #d78c96,
+        -45px 60px 0 #ad4b5b;
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   ROSES
+========================================================= */
+
+.rose {
+    position: absolute;
+
+    z-index: 3;
+
+    color: #9e2035;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 135px;
+
+    line-height: 1;
+
+    opacity: .43;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(143, 16, 38, .35)
+        );
+
+    pointer-events: none;
+}
+
+
+.rose-left {
+    left: -12px;
+    top: 9%;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+.rose-right {
+    right: -15px;
+    bottom: 8%;
+
+    transform:
+        rotate(150deg);
+}
+
+
+/* =========================================================
+   BUTTERFLIES
+========================================================= */
+
+.butterfly {
+    position: absolute;
+
+    z-index: 4;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 70px;
+
+    color: #d48b95;
+
+    opacity: .25;
+
+    text-shadow:
+        0 0 15px
+        rgba(203, 73, 94, .6);
+
+    pointer-events: none;
+}
+
+
+.butterfly-left {
+    left: 13%;
+    top: 24%;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+.butterfly-right {
+    right: 12%;
+    bottom: 24%;
+
+    transform:
+        rotate(25deg);
+}
+
+
+/* =========================================================
+   ORBIT LINES
+========================================================= */
+
+.orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+.orbit-1 {
+    width: 78vw;
+    height: 28vw;
+
+    min-height: 230px;
+    max-height: 400px;
+
+    border:
+        1px solid
+        rgba(199, 87, 101, .17);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+}
+
+
+.orbit-2 {
+    width: 65vw;
+    height: 20vw;
+
+    min-height: 170px;
+    max-height: 290px;
+
+    border:
+        1px solid
+        rgba(210, 104, 116, .11);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(14deg);
+}
+
+
+/* =========================================================
+   HERO STARS
+========================================================= */
+
+.hero-star {
+    position: absolute;
+
+    z-index: 6;
+
+    color: #e8b8bd;
+
+    text-shadow:
+        0 0 10px #c44b5e,
+        0 0 22px rgba(189, 40, 62, .55);
+
+    pointer-events: none;
+}
+
+
+.star-1 {
+    left: 28%;
+    top: 31%;
+
+    font-size: 19px;
+}
+
+
+.star-2 {
+    right: 26%;
+    top: 23%;
+
+    font-size: 12px;
+}
+
+
+.star-3 {
+    right: 29%;
+    bottom: 22%;
+
+    font-size: 17px;
+}
+
+
+.star-4 {
+    left: 19%;
+    bottom: 28%;
+
+    font-size: 11px;
+}
+
+
+.star-5 {
+    right: 17%;
+    top: 43%;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   EXTRA HERO CORNERS
+========================================================= */
+
+.hero-corner {
+    position: absolute;
+
+    z-index: 5;
+
+    color: rgba(193, 74, 91, .5);
+
+    font-size: 26px;
+
+    text-shadow:
+        0 0 12px rgba(184, 30, 53, .4);
+
+    pointer-events: none;
+}
+
+
+.hero-corner-tl {
+    left: 47px;
+    top: 45px;
+}
+
+
+.hero-corner-tr {
+    right: 47px;
+    top: 45px;
+}
+
+
+.hero-corner-bl {
+    left: 47px;
+    bottom: 45px;
+}
+
+
+.hero-corner-br {
+    right: 47px;
+    bottom: 45px;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1000px, 90%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   TITLE DECORATION
+========================================================= */
+
+.title-rule {
+    position: relative;
+
+    width: 250px;
+    height: 22px;
+
+    margin-bottom: 4px;
+
+    color: #d8949c;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+.title-rule::before,
+.title-rule::after {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+
+    width: 100px;
     height: 1px;
 
     background:
         linear-gradient(
             to right,
             transparent,
-            rgba(170, 65, 75, .65)
+            rgba(204, 100, 112, .6)
         );
 }
 
-.subtitle::before {
-    right: calc(100% + 20px);
+
+.title-rule::before {
+    left: 0;
 }
 
-.subtitle::after {
-    left: calc(100% + 20px);
 
-    transform: rotate(180deg);
+.title-rule::after {
+    right: 0;
+
+    transform:
+        rotate(180deg);
 }
 
-/* =========================
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+    margin-bottom: 24px;
+
+    color: #c4abad;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: .55em;
+
+    text-transform: uppercase;
+}
+
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "·";
+
+    margin: 0 12px;
+
+    color: #bd3048;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.hero h1 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-family:
+        "Bodoni Moda",
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            72px,
+            10.8vw,
+            155px
+        );
+
+    font-weight: 400;
+
+    line-height: .78;
+
+    letter-spacing: -.065em;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 232, 230, .08),
+
+        0 0 80px
+        rgba(115, 8, 27, .16);
+}
+
+
+.hero h1 em {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #a71a32;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: .72em;
+
+    font-style: italic;
+
+    font-weight: 500;
+
+    letter-spacing: -.035em;
+
+    text-shadow:
+        0 0 14px
+        rgba(197, 41, 65, .32),
+
+        0 0 45px
+        rgba(131, 11, 31, .25);
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.date-line {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 17px;
+
+    margin-top: 40px;
+
+    color: #b7a5a3;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 300;
+
+    letter-spacing: .35em;
+}
+
+
+.date-line > span:not(.date-text) {
+    width: 60px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(191, 71, 86, .72)
+        );
+}
+
+
+.date-line > span:last-child {
+    transform:
+        rotate(180deg);
+}
+
+
+.date-line b {
+    color: #c43a50;
+
+    font-weight: 300;
+
+    font-size: 14px;
+}
+
+
+.date-text {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
    OPEN BUTTON
-========================= */
+========================================================= */
 
 .enter-btn {
     position: relative;
 
-    margin-top: 42px;
+    margin-top: 43px;
 
-    min-width: 145px;
-    height: 48px;
+    min-width: 160px;
+    height: 50px;
 
-    padding: 0 35px;
+    padding:
+        0 30px;
 
-    background: rgba(10, 3, 5, .55);
+    border:
+        1px solid
+        rgba(204, 99, 111, .66);
 
-    border: 1px solid rgba(174, 67, 78, .65);
+    background:
+        rgba(7, 2, 4, .5);
 
     color: #eee4e2;
 
-    font-family: "Montserrat", sans-serif;
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
-    letter-spacing: 4px;
+    font-weight: 400;
+
+    letter-spacing: .42em;
 
     text-transform: uppercase;
 
     cursor: pointer;
 
     transition:
-        .4s ease;
+        .45s ease;
 
     box-shadow:
-        0 0 18px rgba(120, 15, 30, .15),
-        inset 0 0 15px rgba(120, 15, 30, .08);
+        0 0 20px
+        rgba(136, 11, 33, .13),
+
+        inset 0 0 18px
+        rgba(132, 12, 30, .07);
 }
+
 
 .enter-btn::before,
 .enter-btn::after {
@@ -346,354 +1139,1176 @@ body {
 
     position: absolute;
 
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
 
-    border: 1px solid #b62b40;
+    border:
+        1px solid
+        #c13a51;
 
-    transition: .3s ease;
+    transition:
+        .4s ease;
 }
 
+
 .enter-btn::before {
-    left: -4px;
-    top: -4px;
+    left: -5px;
+    top: -5px;
 
     border-right: 0;
     border-bottom: 0;
 }
 
+
 .enter-btn::after {
-    right: -4px;
-    bottom: -4px;
+    right: -5px;
+    bottom: -5px;
 
     border-left: 0;
     border-top: 0;
 }
 
+
+.enter-btn i {
+    margin-left: 17px;
+
+    color: #c63c53;
+
+    font-style: normal;
+}
+
+
 .enter-btn:hover {
     color: white;
 
-    background: rgba(100, 8, 20, .25);
+    background:
+        rgba(104, 8, 25, .28);
 
-    border-color: #d24a5d;
+    border-color:
+        #dd6879;
 
     box-shadow:
-        0 0 20px rgba(160, 20, 40, .3),
-        0 0 55px rgba(130, 10, 30, .18);
+        0 0 28px
+        rgba(174, 22, 48, .28),
+
+        0 0 70px
+        rgba(132, 10, 31, .15);
 }
+
 
 .enter-btn:hover::before,
 .enter-btn:hover::after {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
 }
 
-/* =========================
+
+/* =========================================================
    SCROLL NOTE
-========================= */
+========================================================= */
 
 .scroll-note {
     position: absolute;
 
-    bottom: 28px;
+    z-index: 10;
 
     left: 50%;
+    bottom: 28px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    font-family: "Montserrat", sans-serif;
+    color: #736669;
 
-    font-size: 9px;
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
 
-    letter-spacing: 4px;
+    font-size: 8px;
 
-    color: #75696a;
+    font-weight: 300;
+
+    letter-spacing: .32em;
 
     text-transform: uppercase;
 
     white-space: nowrap;
 }
 
-/* =========================
-   MOON
-========================= */
 
-.hero .moon {
-    position: absolute;
+.scroll-note span {
+    display: block;
 
-    left: 50%;
-    top: 10%;
+    margin-bottom: 8px;
 
-    transform: translateX(-50%);
+    color: #c23a51;
 
-    width: 70px;
-    height: 70px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 35%,
-            #fff5f2,
-            #d9a7aa 55%,
-            #6b1a27 100%
-        );
-
-    box-shadow:
-        0 0 25px rgba(230, 160, 165, .4),
-        0 0 80px rgba(130, 20, 35, .25);
-
-    opacity: .9;
+    font-size: 14px;
 }
 
-/* crescent cut */
 
-.hero .moon::after {
-    content: "";
-
-    position: absolute;
-
-    width: 68px;
-    height: 68px;
-
-    left: 20px;
-    top: -10px;
-
-    border-radius: 50%;
-
-    background: #030203;
-}
-
-/* =========================
-   DECORATIVE CORNERS
-========================= */
-
-.hero .corner {
-    position: absolute;
-
-    width: 120px;
-    height: 120px;
-
-    opacity: .6;
-
-    pointer-events: none;
-}
-
-.hero .corner::before,
-.hero .corner::after {
-    content: "";
-
-    position: absolute;
-
-    border-color: rgba(155, 32, 47, .45);
-    border-style: solid;
-}
-
-.hero .corner::before {
-    inset: 0;
-
-    border-width: 1px 0 0 1px;
-}
-
-.hero .corner::after {
-    inset: 12px;
-
-    border-width: 0 1px 1px 0;
-}
-
-.hero .corner.left {
-    left: 30px;
-    top: 30px;
-}
-
-.hero .corner.right {
-    right: 30px;
-    bottom: 30px;
-
-    transform: rotate(180deg);
-}
-
-/* =========================
-   REVEAL ANIMATION
-========================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    animation:
-        revealUp 1.3s cubic-bezier(.22, .61, .36, 1)
-        forwards;
-}
-
-.reveal-delay-1,
-.delay-1 {
-    animation-delay: .2s;
-}
-
-.reveal-delay-2,
-.delay-2 {
-    animation-delay: .4s;
-}
-
-.reveal-delay-3,
-.delay-3 {
-    animation-delay: .65s;
-}
-
-.reveal-delay-4,
-.delay-4 {
-    animation-delay: .9s;
-}
-
-@keyframes revealUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================
-   MUSIC BUTTON
-========================= */
-
-.music-btn {
-    position: fixed;
-
-    top: 22px;
-    right: 25px;
-
-    z-index: 100;
-
-    padding: 11px 17px;
-
-    background: rgba(4, 2, 3, .65);
-
-    border: 1px solid rgba(155, 45, 60, .5);
-
-    color: #e8dcda;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(5px);
-
-    transition: .3s ease;
-}
-
-.music-btn:hover {
-    border-color: #c14356;
-
-    background: rgba(70, 7, 15, .4);
-}
-
-/* =========================
-   HIDDEN CONTENT
-========================= */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .hidden-content {
+    display: none;
+
     position: relative;
 
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(90, 7, 20, .2),
+            rgba(90, 6, 21, .18),
             transparent 50%
         ),
         #050304;
 }
 
-/* =========================
+
+.hidden-content.show {
+    display: block;
+}
+
+
+.section {
+    position: relative;
+
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    padding:
+        150px 28px;
+}
+
+
+.section::before {
+    content: "✦";
+
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: #71303b;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   CONTENT TITLES
+========================================================= */
+
+.section h2 {
+    color: var(--white);
+
+    font-family:
+        "Bodoni Moda",
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            82px
+        );
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -.045em;
+}
+
+
+.section h2 em {
+    color: #b2223b;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-style: italic;
+}
+
+
+.body-copy {
+    max-width: 610px;
+
+    margin-top: 35px;
+
+    color: #96898a;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.95;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+    position: relative;
+}
+
+
+.timeline-line {
+    position: absolute;
+
+    left: 50%;
+
+    top: 150px;
+    bottom: 110px;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #7f172a,
+            transparent
+        );
+
+    opacity: .6;
+}
+
+
+.timeline-item {
+    position: relative;
+
+    width: 45%;
+
+    padding:
+        45px 0;
+
+    border-top:
+        1px solid
+        rgba(103, 43, 51, .45);
+}
+
+
+.timeline-item:nth-of-type(odd) {
+    margin-right: auto;
+
+    padding-right: 50px;
+
+    text-align: right;
+}
+
+
+.timeline-item:nth-of-type(even) {
+    margin-left: auto;
+
+    padding-left: 50px;
+}
+
+
+.timeline-item::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: -9px;
+
+    color: #bd344b;
+
+    font-size: 9px;
+
+    text-shadow:
+        0 0 13px #c12943;
+}
+
+
+.timeline-item:nth-of-type(odd)::after {
+    right: -5px;
+}
+
+
+.timeline-item:nth-of-type(even)::after {
+    left: -5px;
+}
+
+
+.month {
+    color: #9b7077;
+
+    font-size: 9px;
+
+    letter-spacing: .3em;
+}
+
+
+.timeline-item h3 {
+    margin:
+        12px 0 8px;
+
+    color: #ddd0cd;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+}
+
+
+.timeline-item p {
+    color: #817476;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 55px;
+}
+
+
+.photo-card {
+    position: relative;
+}
+
+
+.photo-card.tall {
+    margin-top: 55px;
+}
+
+
+.photo-card.wide {
+    grid-column: 1 / -1;
+
+    width: 70%;
+
+    margin:
+        0 auto;
+}
+
+
+.placeholder {
+    min-height: 260px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #180e11,
+            #080506
+        );
+
+    border:
+        1px solid
+        #3e242a;
+
+    color: #725c60;
+
+    font-size: 9px;
+
+    letter-spacing: .3em;
+}
+
+
+.photo-card.tall .placeholder {
+    min-height: 350px;
+}
+
+
+.photo-card span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #796e70;
+
+    font-size: 9px;
+
+    letter-spacing: .14em;
+}
+
+
+.small-note {
+    margin-top: 22px;
+
+    color: #62595b;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+}
+
+
+.small-note code {
+    color: #ad6974;
+}
+
+
+/* =========================================================
+   SONGS
+========================================================= */
+
+.song-list {
+    margin-top: 55px;
+
+    border-top:
+        1px solid
+        rgba(95, 42, 50, .45);
+}
+
+
+.song {
+    display: grid;
+
+    grid-template-columns:
+        45px 1fr 100px 25px;
+
+    align-items: center;
+
+    padding:
+        22px 5px;
+
+    border-bottom:
+        1px solid
+        rgba(95, 42, 50, .45);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        .3s ease;
+}
+
+
+.song:hover {
+    padding-left: 15px;
+
+    background:
+        rgba(89, 7, 21, .13);
+}
+
+
+.song > span,
+.song small,
+.song b {
+    color: #75686a;
+
+    font-size: 9px;
+}
+
+
+.song strong {
+    color: #d8cdca;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+
+.song small {
+    text-align: right;
+}
+
+
+.song b {
+    color: #c66b79;
+
+    font-weight: 400;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   SECRET NOTES
+========================================================= */
+
+.note-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 55px;
+}
+
+
+.note-buttons button {
+    width: 54px;
+    height: 54px;
+
+    border:
+        1px solid
+        #43272e;
+
+    background:
+        transparent;
+
+    color: #a27d83;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+
+.note-buttons button:hover,
+.note-buttons button.active {
+    background:
+        #7d1025;
+
+    border-color:
+        #a92a42;
+
+    color: white;
+
+    box-shadow:
+        0 0 20px
+        rgba(166, 20, 44, .25);
+}
+
+
+.secret-message {
+    min-height: 75px;
+
+    margin-top: 30px;
+
+    padding:
+        18px 20px;
+
+    border-left:
+        1px solid
+        #b52e46;
+
+    color: #b8acab;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 23px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown {
+    text-align: center;
+}
+
+
+.countdown-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 60px;
+}
+
+
+.countdown-grid div {
+    padding:
+        22px 5px;
+
+    border-top:
+        1px solid
+        #40262b;
+}
+
+
+.countdown-grid strong {
+    display: block;
+
+    color: #eee5e2;
+
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            38px,
+            7vw,
+            70px
+        );
+
+    font-weight: 400;
+}
+
+
+.countdown-grid span {
+    color: #706466;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MISS ME
+========================================================= */
+
+.miss-me {
+    text-align: center;
+}
+
+
+.miss-card {
+    display: none;
+
+    max-width: 550px;
+
+    margin:
+        40px auto 0;
+
+    padding:
+        45px 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(110, 8, 27, .16),
+            transparent 65%
+        );
+
+    border:
+        1px solid
+        #43272e;
+}
+
+
+.miss-card.show {
+    display: block;
+
+    animation:
+        fadeUp .8s both;
+}
+
+
+.miss-card p {
+    margin: 8px;
+
+    color: #d3c5c2;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    line-height: 1.35;
+}
+
+
+.miss-card span {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #c63d54;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+    text-align: center;
+}
+
+
+.letter-paper {
+    display: none;
+
+    max-width: 650px;
+
+    margin:
+        45px auto 0;
+
+    padding:
+        50px 42px;
+
+    color: #292426;
+
+    background:
+        #e7dfd7;
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.45);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+
+.letter-paper.show {
+    display: block;
+
+    animation:
+        fadeUp .9s both;
+}
+
+
+.letter-paper p {
+    margin-bottom: 22px;
+}
+
+
+.signature {
+    color: #4c2028;
+
+    font-size: 28px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        80px 30px 40px;
+
+    color: #51494a;
+
+    font-size: 8px;
+
+    letter-spacing: .3em;
+
+    text-align: center;
+}
+
+
+footer span {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #7e4e58;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    animation:
+        revealUp 1.3s
+        cubic-bezier(.22,.61,.36,1)
+        forwards;
+}
+
+
+.delay-1 {
+    animation-delay: .2s;
+}
+
+
+.delay-2 {
+    animation-delay: .4s;
+}
+
+
+.delay-3 {
+    animation-delay: .7s;
+}
+
+
+.delay-4 {
+    animation-delay: 1s;
+}
+
+
+@keyframes revealUp {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
-    .hero h1 {
-        font-size: clamp(58px, 16vw, 90px);
 
-        letter-spacing: -2px;
+    .hero {
+        min-height: 100svh;
+
+        height: 100svh;
     }
+
+
+    .hero-frame {
+        inset: 15px;
+    }
+
+
+    .hero-frame::before {
+        inset: 9px;
+    }
+
+
+    .hero-glow {
+        width: 380px;
+        height: 380px;
+    }
+
+
+    .hero-glow::before {
+        width: 480px;
+        height: 170px;
+    }
+
+
+    .hero-glow::after {
+        width: 420px;
+        height: 120px;
+    }
+
+
+    .moon {
+        width: 52px;
+        height: 52px;
+
+        top: 11%;
+    }
+
+
+    .moon::after {
+        width: 50px;
+        height: 50px;
+
+        left: 15px;
+        top: -8px;
+    }
+
+
+    .rose {
+        font-size: 78px;
+    }
+
+
+    .rose-left {
+        left: -18px;
+        top: 13%;
+    }
+
+
+    .rose-right {
+        right: -18px;
+        bottom: 13%;
+    }
+
+
+    .butterfly {
+        font-size: 40px;
+    }
+
+
+    .butterfly-left {
+        left: 7%;
+        top: 27%;
+    }
+
+
+    .butterfly-right {
+        right: 7%;
+        bottom: 27%;
+    }
+
+
+    .orbit-1 {
+        width: 120vw;
+        height: 50vw;
+    }
+
+
+    .orbit-2 {
+        width: 105vw;
+        height: 35vw;
+    }
+
+
+    .hero-corner-tl {
+        left: 30px;
+        top: 32px;
+    }
+
+
+    .hero-corner-tr {
+        right: 30px;
+        top: 32px;
+    }
+
+
+    .hero-corner-bl {
+        left: 30px;
+        bottom: 32px;
+    }
+
+
+    .hero-corner-br {
+        right: 30px;
+        bottom: 32px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            clamp(
+                58px,
+                16vw,
+                90px
+            );
+
+        letter-spacing:
+            -.05em;
+    }
+
 
     .hero h1 em {
         margin-top: 15px;
-
-        font-size: .72em;
     }
 
-    .subtitle {
-        font-size: 9px;
 
-        letter-spacing: 3px;
+    .eyebrow {
+        font-size: 8px;
+
+        letter-spacing: .4em;
     }
 
-    .subtitle::before,
-    .subtitle::after {
-        width: 35px;
+
+    .date-line {
+        gap: 9px;
+
+        margin-top: 30px;
+
+        font-size: 8px;
+
+        letter-spacing: .17em;
     }
 
-    .subtitle::before {
-        right: calc(100% + 10px);
+
+    .date-line > span:not(.date-text) {
+        width: 24px;
     }
 
-    .subtitle::after {
-        left: calc(100% + 10px);
+
+    .date-line b {
+        font-size: 11px;
     }
 
-    .hero-glow {
-        width: 360px;
-        height: 360px;
+
+    .enter-btn {
+        margin-top: 34px;
+
+        min-width: 140px;
+
+        height: 46px;
     }
 
-    .hero-glow::before {
-        width: 430px;
-        height: 150px;
-    }
-
-    .hero .moon {
-        width: 48px;
-        height: 48px;
-
-        top: 12%;
-    }
-
-    .hero .moon::after {
-        width: 48px;
-        height: 48px;
-
-        left: 14px;
-        top: -7px;
-    }
-
-    .music-btn {
-        top: 15px;
-        right: 15px;
-    }
 
     .scroll-note {
+        bottom: 20px;
+
         font-size: 7px;
 
-        letter-spacing: 2px;
+        letter-spacing: .2em;
     }
 
-    .hero .corner {
-        width: 70px;
-        height: 70px;
+
+    .music-btn {
+        top: 14px;
+        right: 14px;
+
+        padding: 9px 12px;
     }
 
-    .hero .corner.left {
-        left: 15px;
-        top: 15px;
+
+    .music-btn span {
+        display: none;
     }
 
-    .hero .corner.right {
-        right: 15px;
-        bottom: 15px;
+
+    .ornament-corner {
+        display: none;
     }
+
+
+    .section {
+        padding:
+            110px 20px;
+    }
+
+
+    .timeline-line {
+        left: 10px;
+
+        top: 150px;
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-of-type(odd),
+    .timeline-item:nth-of-type(even) {
+        width: 100%;
+
+        margin: 0;
+
+        padding:
+            35px
+            0
+            35px
+            35px;
+
+        text-align: left;
+    }
+
+
+    .timeline-item:nth-of-type(odd)::after,
+    .timeline-item:nth-of-type(even)::after {
+        left: 4px;
+        right: auto;
+    }
+
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .photo-card.tall,
+    .photo-card.wide {
+        width: 100%;
+
+        margin-top: 0;
+    }
+
+
+    .song {
+        grid-template-columns:
+            35px 1fr 65px 20px;
+    }
+
+
+    .song strong {
+        font-size: 20px;
+    }
+
+
+    .countdown-grid {
+        gap: 4px;
+    }
+
+
+    .countdown-grid strong {
+        font-size: 40px;
+    }
+
+
+    .letter-paper {
+        padding:
+            32px 24px;
+
+        font-size: 19px;
+    }
+
 }
