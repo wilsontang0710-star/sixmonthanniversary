@@ -3,155 +3,671 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#050304">
+
   <title>Six Months — For Ulya</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <!-- STAR BACKGROUND -->
   <canvas id="stars"></canvas>
+
+  <div class="nebula nebula-a"></div>
+  <div class="nebula nebula-b"></div>
+
   <div class="grain"></div>
 
-  <button class="music-btn" id="musicBtn" aria-label="Toggle background music">♫ <span>Music</span></button>
+  <!-- CORNER DECORATIONS -->
+  <div class="ornament-corner corner-tl">✦</div>
+  <div class="ornament-corner corner-tr">✦</div>
+  <div class="ornament-corner corner-bl">✦</div>
+  <div class="ornament-corner corner-br">✦</div>
+
+  <!-- MUSIC -->
+  <button class="music-btn" id="musicBtn" aria-label="Toggle background music">
+    ♫ <span>Music</span>
+  </button>
+
   <audio id="bgMusic" loop>
-    <!-- Put your own MP3 in this folder and change the filename, e.g. music.mp3 -->
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
+
   <main>
+
+    <!-- ========================= -->
+    <!-- HERO / FIRST PAGE -->
+    <!-- ========================= -->
+
     <section class="hero">
-      <div class="hero-glow"></div>
-      <p class="eyebrow reveal">FOR ULYA</p>
-      <h1 class="reveal delay-1">Six Months<br><em>With You.</em></h1>
-     <p class="subtitle reveal delay-2">26.03.2026 <span>—</span> 26.09.2026</p>
-      <button class="enter-btn reveal delay-3" id="enterBtn">Open</button>
-      <p class="scroll-note reveal delay-4">a little something I made for you</p>
+
+      <div class="hero-frame"></div>
+      <div class="hero-vignette"></div>
+
+      <!-- Moon -->
+      <div class="moon">
+        <span></span>
+      </div>
+
+      <!-- Decorative roses -->
+      <div class="rose rose-left">❦</div>
+      <div class="rose rose-right">❦</div>
+
+      <!-- Decorative butterflies -->
+      <div class="butterfly butterfly-left">♧</div>
+      <div class="butterfly butterfly-right">♧</div>
+
+      <!-- Orbital decoration -->
+      <div class="orbit orbit-1"></div>
+      <div class="orbit orbit-2"></div>
+
+      <!-- Stars -->
+      <div class="hero-star star-1">✦</div>
+      <div class="hero-star star-2">✧</div>
+      <div class="hero-star star-3">✦</div>
+      <div class="hero-star star-4">✧</div>
+      <div class="hero-star star-5">✦</div>
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+
+        <div class="title-rule">
+          <span>✦</span>
+        </div>
+
+        <p class="eyebrow reveal">
+          FOR ULYA
+        </p>
+
+        <h1 class="reveal delay-1">
+          Six Months
+          <br>
+          <em>With You.</em>
+        </h1>
+
+        <div class="date-line reveal delay-2">
+          <span></span>
+
+          26.03.2026
+          <b>—</b>
+          26.09.2026
+
+          <span></span>
+        </div>
+
+        <button
+          class="enter-btn reveal delay-3"
+          id="enterBtn"
+        >
+          <span>Open</span>
+          <i>↗</i>
+        </button>
+
+        <p class="scroll-note reveal delay-4">
+          <span>↓</span>
+          a little something I made for you
+        </p>
+
+      </div>
+
     </section>
 
+
+    <!-- ========================= -->
+    <!-- EVERYTHING BELOW -->
+    <!-- ========================= -->
+
     <div id="content" class="hidden-content">
+
+      <!-- INTRO -->
+
       <section class="section intro reveal-on-scroll">
-        <p class="eyebrow">01 / OUR STORY</p>
-        <h2>Six months.<br><em>A thousand little moments.</em></h2>
-        <p class="body-copy">Six months of messages, late nights, calls, laughter, arguments, apologies, and all the little moments that somehow became part of us.</p>
+
+        <p class="eyebrow">
+          01 / OUR STORY
+        </p>
+
+        <h2>
+          Six months.
+          <br>
+          <em>A thousand little moments.</em>
+        </h2>
+
+        <p class="body-copy">
+          Six months of messages, late nights, calls, laughter,
+          arguments, apologies, and all the little moments that
+          somehow became part of us.
+        </p>
+
       </section>
+
+
+      <!-- TIMELINE -->
 
       <section class="timeline section reveal-on-scroll">
+
         <div class="timeline-line"></div>
+
         <article class="timeline-item">
-          <span class="month">MONTH 01</span>
-          <h3>The beginning.</h3>
-          <p>Replace this with the story of how we started.</p>
+
+          <span class="month">
+            MONTH 01
+          </span>
+
+          <h3>
+            The beginning.
+          </h3>
+
+          <p>
+            Replace this with the story of how we started.
+          </p>
+
         </article>
+
+
         <article class="timeline-item">
-          <span class="month">MONTH 02</span>
-          <h3>Getting closer.</h3>
-          <p>Add a memory, a date, or something you still remember.</p>
+
+          <span class="month">
+            MONTH 02
+          </span>
+
+          <h3>
+            Getting closer.
+          </h3>
+
+          <p>
+            Add a memory, a date, or something you still remember.
+          </p>
+
         </article>
+
+
         <article class="timeline-item">
-          <span class="month">MONTH 03</span>
-          <h3>Somewhere between us.</h3>
-          <p>Even with countries between us, you became part of my everyday life.</p>
+
+          <span class="month">
+            MONTH 03
+          </span>
+
+          <h3>
+            Somewhere between us.
+          </h3>
+
+          <p>
+            Even with countries between us,
+            you became part of my everyday life.
+          </p>
+
         </article>
+
+
         <article class="timeline-item">
-          <span class="month">MONTH 04</span>
-          <h3>The little things.</h3>
-          <p>Put your favorite private memory here.</p>
+
+          <span class="month">
+            MONTH 04
+          </span>
+
+          <h3>
+            The little things.
+          </h3>
+
+          <p>
+            Put your favorite private memory here.
+          </p>
+
         </article>
+
+
         <article class="timeline-item">
-          <span class="month">MONTH 05</span>
-          <h3>Still choosing you.</h3>
-          <p>Write something only the two of you would understand.</p>
+
+          <span class="month">
+            MONTH 05
+          </span>
+
+          <h3>
+            Still choosing you.
+          </h3>
+
+          <p>
+            Write something only the two of you would understand.
+          </p>
+
         </article>
+
+
         <article class="timeline-item">
-          <span class="month">MONTH 06</span>
-          <h3>Here we are.</h3>
-          <p>Six months down. And there is still so much more ahead.</p>
+
+          <span class="month">
+            MONTH 06
+          </span>
+
+          <h3>
+            Here we are.
+          </h3>
+
+          <p>
+            Six months down.
+            And there is still so much more ahead.
+          </p>
+
         </article>
+
       </section>
+
+
+      <!-- MEMORIES -->
 
       <section class="section memories reveal-on-scroll">
-        <p class="eyebrow">02 / OUR MEMORIES</p>
-        <h2>A few pieces<br><em>of us.</em></h2>
+
+        <p class="eyebrow">
+          02 / OUR MEMORIES
+        </p>
+
+        <h2>
+          A few pieces
+          <br>
+          <em>of us.</em>
+        </h2>
+
         <div class="photo-grid">
-          <div class="photo-card"><div class="placeholder">PHOTO 01</div><span>your caption here</span></div>
-          <div class="photo-card tall"><div class="placeholder">PHOTO 02</div><span>your caption here</span></div>
-          <div class="photo-card"><div class="placeholder">PHOTO 03</div><span>your caption here</span></div>
-          <div class="photo-card wide"><div class="placeholder">PHOTO 04</div><span>your caption here</span></div>
+
+          <div class="photo-card">
+
+            <div class="placeholder">
+              PHOTO 01
+            </div>
+
+            <span>
+              your caption here
+            </span>
+
+          </div>
+
+
+          <div class="photo-card tall">
+
+            <div class="placeholder">
+              PHOTO 02
+            </div>
+
+            <span>
+              your caption here
+            </span>
+
+          </div>
+
+
+          <div class="photo-card">
+
+            <div class="placeholder">
+              PHOTO 03
+            </div>
+
+            <span>
+              your caption here
+            </span>
+
+          </div>
+
+
+          <div class="photo-card wide">
+
+            <div class="placeholder">
+              PHOTO 04
+            </div>
+
+            <span>
+              your caption here
+            </span>
+
+          </div>
+
         </div>
-        <p class="small-note">Replace the placeholders with your photos. Instructions are in README.txt.</p>
+
+        <p class="small-note">
+          Replace the placeholders with your photos.
+          Instructions are in README.txt.
+        </p>
+
       </section>
+
+
+      <!-- SONGS -->
 
       <section class="section songs reveal-on-scroll">
-        <p class="eyebrow">03 / OUR SONGS</p>
-        <h2>Press play<br><em>and think of me.</em></h2>
+
+        <p class="eyebrow">
+          03 / OUR SONGS
+        </p>
+
+        <h2>
+          Press play
+          <br>
+          <em>and think of me.</em>
+        </h2>
+
         <div class="song-list">
-          <a class="song" href="https://open.spotify.com/" target="_blank" rel="noopener"><span>01</span><strong>Our song</strong><small>Spotify</small><b>↗</b></a>
-          <a class="song" href="https://www.youtube.com/" target="_blank" rel="noopener"><span>02</span><strong>Another one</strong><small>YouTube</small><b>↗</b></a>
-          <a class="song" href="https://open.spotify.com/" target="_blank" rel="noopener"><span>03</span><strong>A song that reminds me of you</strong><small>Spotify</small><b>↗</b></a>
+
+          <a
+            class="song"
+            href="https://open.spotify.com/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span>01</span>
+
+            <strong>
+              Our song
+            </strong>
+
+            <small>
+              Spotify
+            </small>
+
+            <b>
+              ↗
+            </b>
+
+          </a>
+
+
+          <a
+            class="song"
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span>02</span>
+
+            <strong>
+              Another one
+            </strong>
+
+            <small>
+              YouTube
+            </small>
+
+            <b>
+              ↗
+            </b>
+
+          </a>
+
+
+          <a
+            class="song"
+            href="https://open.spotify.com/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span>03</span>
+
+            <strong>
+              A song that reminds me of you
+            </strong>
+
+            <small>
+              Spotify
+            </small>
+
+            <b>
+              ↗
+            </b>
+
+          </a>
+
         </div>
+
       </section>
+
+
+      <!-- HIDDEN NOTES -->
 
       <section class="section hidden-notes reveal-on-scroll">
-        <p class="eyebrow">04 / THINGS I NEVER SAID</p>
-        <h2>Click one.<br><em>Keep it between us.</em></h2>
+
+        <p class="eyebrow">
+          04 / THINGS I NEVER SAID
+        </p>
+
+        <h2>
+          Click one.
+          <br>
+          <em>Keep it between us.</em>
+        </h2>
+
         <div class="note-buttons">
-          <button data-message="I still get happy when your name appears on my phone.">01</button>
-          <button data-message="Distance never made you feel less important to me.">02</button>
-          <button data-message="Some of my favorite memories are just us talking late at night.">03</button>
-          <button data-message="Even after six months, I still miss you.">04</button>
-          <button data-message="There are a lot more things I want to experience with you.">05</button>
+
+          <button
+            data-message="I still get happy when your name appears on my phone."
+          >
+            01
+          </button>
+
+          <button
+            data-message="Distance never made you feel less important to me."
+          >
+            02
+          </button>
+
+          <button
+            data-message="Some of my favorite memories are just us talking late at night."
+          >
+            03
+          </button>
+
+          <button
+            data-message="Even after six months, I still miss you."
+          >
+            04
+          </button>
+
+          <button
+            data-message="There are a lot more things I want to experience with you."
+          >
+            05
+          </button>
+
         </div>
-        <div class="secret-message" id="secretMessage">Choose a number.</div>
+
+        <div
+          class="secret-message"
+          id="secretMessage"
+        >
+          Choose a number.
+        </div>
+
       </section>
+
+
+      <!-- COUNTDOWN -->
 
       <section class="section countdown reveal-on-scroll">
-        <p class="eyebrow">05 / UNTIL WE MEET</p>
-        <h2>Until I can<br><em>see you again.</em></h2>
-        <div class="countdown-grid" id="countdown">
-          <div><strong id="days">—</strong><span>days</span></div>
-          <div><strong id="hours">—</strong><span>hours</span></div>
-          <div><strong id="minutes">—</strong><span>minutes</span></div>
-          <div><strong id="seconds">—</strong><span>seconds</span></div>
+
+        <p class="eyebrow">
+          05 / UNTIL WE MEET
+        </p>
+
+        <h2>
+          Until I can
+          <br>
+          <em>see you again.</em>
+        </h2>
+
+        <div
+          class="countdown-grid"
+          id="countdown"
+        >
+
+          <div>
+            <strong id="days">—</strong>
+            <span>days</span>
+          </div>
+
+          <div>
+            <strong id="hours">—</strong>
+            <span>hours</span>
+          </div>
+
+          <div>
+            <strong id="minutes">—</strong>
+            <span>minutes</span>
+          </div>
+
+          <div>
+            <strong id="seconds">—</strong>
+            <span>seconds</span>
+          </div>
+
         </div>
-        <p class="small-note">Set your real meeting date in <code>script.js</code>.</p>
+
+        <p class="small-note">
+          Set your real meeting date in
+          <code>script.js</code>.
+        </p>
+
       </section>
+
+
+      <!-- MISS ME -->
 
       <section class="section miss-me reveal-on-scroll">
-        <p class="eyebrow">06 / A LITTLE SECRET</p>
-        <h2>Do you miss me?</h2>
-        <button class="miss-btn" id="missBtn">Open this when you miss me</button>
-        <div class="miss-card" id="missCard">
-          <p>If you're reading this because you miss me,</p>
-          <p>I'm probably missing you too.</p>
-          <p>We're still far away from each other, but you're not alone.</p>
+
+        <p class="eyebrow">
+          06 / A LITTLE SECRET
+        </p>
+
+        <h2>
+          Do you miss me?
+        </h2>
+
+        <button
+          class="miss-btn"
+          id="missBtn"
+        >
+          Open this when you miss me
+        </button>
+
+        <div
+          class="miss-card"
+          id="missCard"
+        >
+
+          <p>
+            If you're reading this because you miss me,
+          </p>
+
+          <p>
+            I'm probably missing you too.
+          </p>
+
+          <p>
+            We're still far away from each other,
+            but you're not alone.
+          </p>
+
           <span>♡</span>
+
         </div>
+
       </section>
+
+
+      <!-- LETTER -->
 
       <section class="section letter reveal-on-scroll">
-        <p class="eyebrow">07 / ONE LAST THING</p>
-        <h2>My letter<br><em>to you.</em></h2>
-        <button class="letter-btn" id="letterBtn">Open my letter</button>
-        <div class="letter-paper" id="letterPaper">
-          <p>My Ulya,</p>
-          <p>Six months might sound like just a number, but when I look back at everything that happened between us, it feels like so much more.</p>
-          <p>Thank you for all the ordinary moments that became special just because they were with you. Thank you for the calls, the messages, the laughs, the difficult conversations, and even the nights when things weren't easy.</p>
-          <p>I wish I could give you this in person. For now, I hope this little corner of the internet can carry a tiny piece of me to you.</p>
-          <p>Six months down. I hope there are many more chapters waiting for us.</p>
-          <p>Until I can see you again,</p>
-          <p class="signature">Wilson ♡</p>
+
+        <p class="eyebrow">
+          07 / ONE LAST THING
+        </p>
+
+        <h2>
+          My letter
+          <br>
+          <em>to you.</em>
+        </h2>
+
+        <button
+          class="letter-btn"
+          id="letterBtn"
+        >
+          Open my letter
+        </button>
+
+        <div
+          class="letter-paper"
+          id="letterPaper"
+        >
+
+          <p>
+            My Ulyashka,
+          </p>
+
+          <p>
+            Six months might sound like just a number,
+            but when I look back at everything that happened
+            between us, it feels like so much more.
+          </p>
+
+          <p>
+            Thank you for all the ordinary moments that became
+            special just because they were with you.
+            Thank you for the calls, the messages, the laughs,
+            the difficult conversations, and even the nights
+            when things weren't easy.
+          </p>
+
+          <p>
+            I wish I could give you this in person.
+            For now, I hope this little corner of the internet
+            can carry a tiny piece of me to you.
+          </p>
+
+          <p>
+            Six months down.
+            I hope there are many more chapters waiting for us.
+          </p>
+
+          <p>
+            Until I can see you again,
+          </p>
+
+          <p class="signature">
+            Wilson (YOUR WILLY) ♡
+          </p>
+
         </div>
+
       </section>
 
+
       <footer>
-        <p>MADE FOR ULYA</p>
-        <span>06 / 06</span>
+
+        <p>
+          MADE FOR ULYASHKA
+        </p>
+
+        <span>
+          06 / 06
+        </span>
+
       </footer>
+
     </div>
+
   </main>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>
