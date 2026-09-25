@@ -4115,5 +4115,24 @@ a {
     .six-month-right .six-month-ending {
         font-size: 23px;
     }
+/* =========================================================
+   MEMORY PHOTOS
+========================================================= */
 
+.photo-placeholder {
+  overflow: hidden;
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .7s ease;
+}
+
+.memory-card:hover .photo-placeholder img {
+  transform: scale(1.03);
+}
 }
