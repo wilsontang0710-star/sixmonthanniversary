@@ -159,81 +159,53 @@ setInterval(
 );
 
 
-<!-- SECRET NOTES -->
+/* =========================================================
+   SECRET NOTES
+========================================================= */
 
-<section class="section secret-section">
+const noteButtons =
+  document.querySelectorAll(
+    ".note-buttons button"
+  );
 
-  <div class="section-number">
-    05
-  </div>
+if (
+  noteButtons.length &&
+  secretMessage
+) {
 
-  <div class="section-title reveal-on-scroll">
+  noteButtons.forEach(button => {
 
-    <span>
-      LITTLE SECRETS
-    </span>
+    button.addEventListener(
+      "click",
+      () => {
 
-    <h2>
-      Open one.
-      <em>Any one.</em>
-    </h2>
+        noteButtons.forEach(
+          item => {
+            item.classList.remove("active");
+          }
+        );
 
-  </div>
+        button.classList.add("active");
 
+        secretMessage.style.opacity =
+          "0";
 
-  <div class="note-buttons reveal-on-scroll">
+        setTimeout(() => {
 
-    <!-- WHEN I MISS YOU -->
-    <button
-      data-message="I don't only miss you when you're gone. Sometimes I miss you while we're still talking — when I wish the distance between us could disappear for just one night. I miss your voice in the quiet hours, the little things you tell me, and the feeling of falling asleep knowing you're still there. Maybe that's what missing someone really is — wanting their presence in moments that don't even need anyone else."
-    >
-      WHEN I MISS YOU
-    </button>
+          secretMessage.textContent =
+            button.dataset.message || "";
 
+          secretMessage.style.opacity =
+            "1";
 
-    <!-- WHEN YOU FEEL SAD -->
-    <button
-      data-message="You don't have to make yourself okay for me. You don't have to hide the messy parts, or find the right words for everything you feel. If one day your heart feels too heavy, you can simply put it down beside me. I may not always know how to fix everything, but I will never ask you to carry it alone."
-    >
-      WHEN YOU FEEL SAD
-    </button>
+        }, 180);
 
+      }
+    );
 
-    <!-- WHEN YOU NEED ME -->
-    <button
-      data-message="You don't have to wonder whether you can call me. You don't have to wait for the perfect moment. If you need me, come to me. Even if it's late. Even if you have nothing to say. Even if all we do is stay on a call in silence. You never have to earn your way back to me. Just come home."
-    >
-      WHEN YOU NEED ME
-    </button>
+  });
 
-
-    <!-- WHEN YOU FEEL ALONE -->
-    <button
-      data-message="Sometimes I think it's strange how two people living under different skies can become so familiar to each other. Malaysia and Kazakhstan are far apart, but somehow your voice became part of my nights, and your little place in my life became something distance couldn't take away. So when you feel alone, remember this — somewhere in this world, there is someone who knows your voice, knows your little habits, and is still choosing you."
-    >
-      WHEN YOU FEEL ALONE
-    </button>
-
-
-    <!-- JUST BECAUSE -->
-    <button
-      data-message="I don't have a perfect reason for loving you. It wasn't one moment. It wasn't one photograph, one call, or one beautiful night. It happened quietly. Somewhere between “Do we know each other?” and all the nights that came after. You became familiar. Then important. Then someone I couldn't imagine my days without. And if I ever have to choose again, I don't want you to wonder where I stand. I am here. I chose you. And I am still choosing you."
-    >
-      JUST BECAUSE
-    </button>
-
-  </div>
-
-
-  <div
-    class="secret-message"
-    id="secretMessage"
-  >
-    Choose one.
-  </div>
-
-</section>
-
+}
 
 /* =========================================================
    MISS ME
