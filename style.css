@@ -3787,3 +3787,267 @@ a {
   }
 
 }
+
+/* =========================================================
+   SECOND PAGE — SIX MONTHS
+========================================================= */
+
+.six-month-page {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 42% 58%;
+    align-items: center;
+
+    position: relative;
+
+    padding: 130px 6vw 140px;
+
+    background:
+        radial-gradient(
+            circle at 38% 42%,
+            rgba(105, 12, 30, .22),
+            transparent 45%
+        );
+
+    overflow: hidden;
+}
+
+
+/* LEFT SIDE */
+
+.six-month-left {
+    position: relative;
+
+    padding-right: 60px;
+
+    z-index: 2;
+}
+
+
+/* 01 */
+
+.page-number {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    color: #a8172d;
+
+    margin-bottom: 18px;
+}
+
+
+/* small red line */
+
+.small-rule {
+    width: 44px;
+    height: 1px;
+
+    background: #8f1428;
+
+    margin-bottom: 105px;
+}
+
+
+/* TO YOU */
+
+.to-you {
+    margin: 0 0 22px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 7px;
+
+    text-transform: uppercase;
+
+    color: #b21b35;
+}
+
+
+/* SIX MONTHS */
+
+.six-month-left h2 {
+    margin: 0;
+
+    font-family: "Bodoni Moda",
+                 "Cormorant Garamond",
+                 serif;
+
+    font-size: clamp(55px, 6vw, 100px);
+
+    font-weight: 400;
+
+    line-height: .88;
+
+    letter-spacing: -4px;
+
+    color: #f4eeee;
+}
+
+
+/* STILL YOU */
+
+.six-month-left h2 em {
+    display: block;
+
+    margin-top: 18px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: .82em;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    letter-spacing: -3px;
+
+    color: #b31938;
+}
+
+
+/* RIGHT SIDE */
+
+.six-month-right {
+    max-width: 720px;
+
+    padding-left: 35px;
+
+    padding-right: 3vw;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+
+    line-height: 1.65;
+
+    color: rgba(225, 211, 211, .68);
+}
+
+
+/* PARAGRAPHS */
+
+.six-month-right p {
+    margin: 0 0 27px;
+}
+
+
+/* IMPORTANT SENTENCE */
+
+.six-month-right .six-month-highlight {
+    margin-top: 38px;
+
+    margin-bottom: 32px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    line-height: 1.15;
+
+    font-style: italic;
+
+    color: #b51b39;
+}
+
+
+/* ENDING */
+
+.six-month-right .six-month-ending {
+    margin-top: 45px;
+
+    margin-bottom: 10px;
+
+    font-family: "Bodoni Moda",
+                 "Cormorant Garamond",
+                 serif;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    color: #eee5e3;
+}
+
+
+/* RUSSIAN */
+
+.six-month-right .russian-love {
+    margin-top: 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+
+    font-style: italic;
+
+    color: #b51b39;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .six-month-page {
+        min-height: auto;
+
+        display: block;
+
+        padding: 100px 25px 100px;
+    }
+
+
+    .six-month-left {
+        padding-right: 0;
+
+        margin-bottom: 70px;
+    }
+
+
+    .small-rule {
+        margin-bottom: 70px;
+    }
+
+
+    .six-month-left h2 {
+        font-size: clamp(58px, 16vw, 90px);
+
+        letter-spacing: -3px;
+    }
+
+
+    .six-month-right {
+        max-width: none;
+
+        padding-left: 0;
+
+        padding-right: 0;
+
+        font-size: 19px;
+
+        line-height: 1.6;
+    }
+
+
+    .six-month-right .six-month-highlight {
+        font-size: 28px;
+    }
+
+
+    .six-month-right .six-month-ending {
+        font-size: 23px;
+    }
+
+}
