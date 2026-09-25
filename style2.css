@@ -2388,7 +2388,73 @@ a {
 /* =========================================================
    MEMORIES
 ========================================================= */
+/* =========================================================
+   OUR STORY - LONG CHAPTERS
+========================================================= */
 
+.story-subtitle {
+  margin-top: 12px;
+  color: rgba(169,153,154,.55);
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.timeline-card p {
+  margin-bottom: 18px;
+}
+
+.timeline-card p:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-card strong {
+  color: #c13a52;
+  font-weight: 500;
+}
+
+.timeline-card em {
+  color: #c13a52;
+}
+
+.chapter-accent {
+  color: #b52a45 !important;
+  font-family: var(--serif) !important;
+  font-size: 21px !important;
+  font-style: italic;
+  line-height: 1.6 !important;
+  margin-top: 28px !important;
+}
+
+.chapter-quote {
+  margin-top: 35px;
+  padding: 25px 0 5px 25px;
+  border-left: 1px solid rgba(181,42,69,.55);
+  color: rgba(181,42,69,.85);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.happy-six {
+  margin-top: 45px !important;
+  color: #c13a52 !important;
+  font-family: var(--serif) !important;
+  font-size: 28px !important;
+}
+
+.final-message {
+  margin-top: 30px !important;
+}
+
+.final-line {
+  margin-top: 25px !important;
+  color: rgba(190,170,172,.85) !important;
+  font-family: var(--serif) !important;
+  font-size: 22px !important;
+  line-height: 1.6 !important;
+}
 .memory-grid {
 
   margin-left:
